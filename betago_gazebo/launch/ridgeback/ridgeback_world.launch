@@ -1,0 +1,71 @@
+<launch>
+  <arg name="use_sim_time" default="true" />
+  <arg name="gui" default="true" />
+  <arg name="headless" default="false" />
+  <arg name="world_name" default="worlds/empty.world" />
+
+  <!-- Configuration of Ridgeback which you would like to simulate.
+       See ridgeback_description for details. base only has only front HoKuyo laser-->
+  <arg name="config" default="$(optenv RIDGEBACK_CONFIG base)" />
+  <arg name="init_x" default="3"/>
+  <arg name="init_y" default="-2"/>
+  <arg name="init_z" default="4"/>
+  <arg name="joystick" default="false"/>
+
+  <!-- Launch Gazebo with the specified world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="0" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="use_sim_time" value="$(arg use_sim_time)" />
+    <arg name="headless" value="$(arg headless)" />
+    <arg name="world_name" value="$(arg world_name)" />
+    <arg name="paused" value="false"/>
+  </include>
+
+  <!-- Load Ridgeback's description, controllers, and teleop nodes. -->
+  <include file="$(find betago_description)/launch/ridgeback/description.launch">
+    <arg name="config" value="$(arg config)" />
+  </include>
+  <include file="$(find betago_control)/launch/ridgeback/control.launch" />
+  <include file="$(find betago_control)/launch/ridgeback/teleop.launch">
+    <arg name="joystick" value="$(arg joystick)"/>
+  </include>
+
+  <rosparam param="/gazebo_ros_control/pid_gains">
+    front_left_wheel:
+      p: 1
+      i: 0.1
+      d: 0
+    front_right_wheel:
+      p: 1
+      i: 0.1
+      d: 0
+    rear_left_wheel:
+      p: 1
+      i: 0.1
+      d: 0
+    rear_right_wheel:
+      p: 1
+      i: 0.1
+      d: 0
+  </rosparam>
+
+  <!-- Spawn Ridgeback -->
+  <!-- a small z will cause the arm unstable, don't know why -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+        args="-urdf
+              -model ridgeback
+              -param robot_description
+              -x $(arg init_x)
+              -y $(arg init_y)
+              -z $(arg init_z)
+
+            " />
+  <!--<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+        args="-sdf -model ridgeback -file /Users/mikepurvis/ridgeback_ws/ridgeback.sdf -x 0 -y 0 -z 0.1" /> -->
+</launch>
+        <!--              -J right_ur_arm_shoulder_pan_joint +3.0-->
+        <!--              -J right_ur_arm_shoulder_lift_joint 0.0-->
+<!--        -J left_ur_arm_shoulder_pan_joint -0.1-->
+<!--        -J left_ur_arm_shoulder_lift_joint -1.3-->
+<!--        -J left_ur_arm_elbow_joint +1.5-->

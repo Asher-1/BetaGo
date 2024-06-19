@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
+
+
+  <arg name="betago_tutorial" default="false" />
+  <arg unless="$(arg betago_tutorial)" name="command_args" value="-d $(find betago_moveit_config)/launch/moveit.rviz" />
+  <arg     if="$(arg betago_tutorial)" name="command_args" value="-d $(find betago_moveit_config)/launch/betago_tutorial.rviz" />
+
+  <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"
+	args="$(arg command_args)" output="screen">
+    <rosparam command="load" file="$(find betago_moveit_config)/config/kinematics.yaml"/>
+  </node>
+
+</launch>
