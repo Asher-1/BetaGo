@@ -58,7 +58,6 @@ if(Threads_FOUND)
     MESSAGE(STATUS "Threads_LIBRARIES =  ${Threads_LIBRARIES}")
 endif()
 
-# set(OpenCV_DIR "/usr/local/share/OpenCV")
 # OpenCV
 find_package(OpenCV REQUIRED)
 include_directories(${OPENCV_INCLUDE_DIRS})
@@ -76,8 +75,8 @@ include_directories(${CERES_INCLUDE_DIRS})
 include_directories("/usr/local/include/eigen3" )
 
 #PCL
-# set(PCL_DIR "/home/td/slam/install/pcl/share/pcl-1.9")
-find_package(PCL 1.8 REQUIRED)
+# find_package(PCL 1.8 REQUIRED)
+find_package(PCL REQUIRED)
 if(PCL_FOUND)
     MESSAGE(STATUS "PCL_INCLUDE_DIRS =  ${PCL_INCLUDE_DIRS}")
     MESSAGE(STATUS "PCL_LIBRARY_DIRS =  ${PCL_LIBRARY_DIRS}")

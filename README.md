@@ -1,7 +1,10 @@
 # Overview
-<img src = "https://github.com/TouchDeeper/BetaGo/blob/ztd/media/betago_rviz.png" width = 54% height = 30% />
 
-[//]: # (<img src = "/home/td/BetaGo_ws/src/media/betago_rviz.png" width = 54% height = 30% />)
+## This project is forked from https://github.com/TouchDeeper/BetaGo.git
+## and make some modification for convinient configuration and compiling!
+<img src = "media/betago_rviz.png" width = 54% height = 30% />
+
+[//]: # (<img src = "media/betago_rviz.png" width = 54% height = 30% />)
 
 This repository is about the BetaGo robot maintained by South China University of Technology [PEMT Laboratory](http://www.scut.edu.cn/pemt/).
 
@@ -94,11 +97,10 @@ This repository is about the BetaGo robot maintained by South China University o
 
 - [td_ros](https://github.com/TouchDeeper/td_ros):
 
-    we add the td_ros directly by submodule.
+    we add the td_ros directly.
 
 - [TdLib](https://github.com/TouchDeeper/TdLib):
-
-    modify all the `TdLib_DIR` in the CMakeLists.txt to your case.
+    we add the TdLib directly.
 
 ## Usage
 create the workspace
