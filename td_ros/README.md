@@ -3,7 +3,7 @@ This is a persoal ROS library include the commonly used functions in development
 ## Dependencies
 - Sophus
 ```asm
-sudo apt-get install ros-kinetic-sophus
+sudo apt-get install ros-melodic-sophus
 ```
 # Getting Started
 - clone

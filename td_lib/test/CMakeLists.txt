@@ -5,23 +5,21 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 set(CMAKE_CXX_STANDARD 11)
 #add_definitions(-std=c++11)
-#TdLib
-set(TdLib_DIR "/home/td/slam/install/TdLib/lib/CMake/TdLib/")
-find_package(TdLib REQUIRED)
+#td_lib
+# set(TdLib_DIR "/home/td/slam/install/td_lib/lib/CMake/td_lib/")
+find_package(td_lib REQUIRED)
 include_directories(${TdLib_INCLUDE_DIRS})
 MESSAGE(STATUS "TdLib_INCLUDE_DIRS = " ${TdLib_INCLUDE_DIRS})
 
-
-
 #PCL
-set(PCL_DIR "/home/td/slam/install/pcl/share/pcl-1.9")
+# set(PCL_DIR "/home/td/slam/install/pcl/share/pcl-1.9")
 find_package(PCL 1.8 REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 # 添加Eigen头文件
 include_directories( "/usr/local/include/eigen3" )
 #template sophus
-include_directories(/home/td/slam/install/sophus/include)
+# include_directories(/home/td/slam/install/sophus/include)
 #
 # OpenCV
 set(OpenCV_DIR "/usr/local/share/OpenCV")

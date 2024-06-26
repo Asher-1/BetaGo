@@ -11,8 +11,8 @@
 
 // need pangolin for plotting trajectory
 #include <pangolin/pangolin.h>
-#include "TdLibrary/slam_tool.h"
-#include "TdLibrary/draw_tool.h"
+#include "td_lib/slam_tool.h"
+#include "td_lib/draw_tool.h"
 using namespace Eigen;
 
 using namespace std;

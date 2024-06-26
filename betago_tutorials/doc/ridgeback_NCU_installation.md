@@ -27,5 +27,5 @@ The source file and build file of the thirdparties will be saved in a unified ha
 - installation method: [backend installation](https://github.com/IntelRealSense/librealsense/blob/master/doc/libuvc_installation.md)
 ### ROS Package
 - Version: find the version that support for the version of realsense SDK 
-- `sudo apt-get install ros-kinetic-ddynamic-reconfigure`
+- `sudo apt-get install ros-melodic-ddynamic-reconfigure`
 - refer to [here](https://github.com/IntelRealSense/realsense-ros#step-2-install-intel-realsense-ros-from-sources)

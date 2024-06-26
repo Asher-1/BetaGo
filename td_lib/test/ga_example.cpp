@@ -2,7 +2,7 @@
 //                    Copyright (C) 2017 Olivier Mallet - All Rights Reserved                      
 //=================================================================================================
 
-#include "TdLibrary/Galgo.hpp"
+#include "td_lib/Galgo.hpp"
 
 // objective class example
 template <typename T>

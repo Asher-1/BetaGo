@@ -38,7 +38,7 @@ file(GLOB eigen_include td_eigen/*.h td_eigen/*.hpp)
 file(GLOB ceres_lib td_ceres/*/*.cpp td_ceres/*/*.hpp td_ceres/*/*.h td_ceres/*.cpp td_ceres/*.h td_ceres/*.hpp  )
 file(GLOB ceres_include td_ceres/*/*.h td_ceres/*/*.hpp td_ceres/*/*.h td_ceres/*/*.hpp)
 
-add_library(TdLib SHARED
+add_library(td_lib SHARED
         ${thread_safe_lib}
         ${realsense_lib}
         ${file_operation_lib}
@@ -130,7 +130,7 @@ set(HEADER_FILES
         ${ceres_include}
         )
 
-target_link_libraries(TdLib PRIVATE
+target_link_libraries(td_lib PRIVATE
                     realsense2
                     ${OpenCV_LIBRARIES}
                     ${PCL_LIBRARIES}
@@ -145,19 +145,19 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
-install(TARGETS TdLib
+install(TARGETS td_lib
         # IMPORTANT: Add the foo library to the "export-set"
         EXPORT ${PROJECT_NAME}Targets
         RUNTIME DESTINATION "${INSTALL_BIN_DIR}" COMPONENT bin
         LIBRARY DESTINATION "${INSTALL_LIB_DIR}" COMPONENT shlib
-#        PUBLIC_HEADER DESTINATION "${INSTALL_INCLUDE_DIR}/TdLibrary" COMPONENT dev
+#        PUBLIC_HEADER DESTINATION "${INSTALL_INCLUDE_DIR}/td_lib" COMPONENT dev
         )
 set(CMAKE_SOURCE_DIR_BACKUP "${CMAKE_SOURCE_DIR}")
 MESSAGE("CMAKE_CURRENT_SOURCE_DIR = " "${CMAKE_CURRENT_SOURCE_DIR}")
 MESSAGE("CMAKE_SOURCE_DIR = " "${CMAKE_SOURCE_DIR}")
 set(CMAKE_SOURCE_DIR "${CMAKE_SOURCE_DIR}/src")
 MESSAGE("CMAKE_SOURCE_DIR = " "${CMAKE_SOURCE_DIR}")
-install(DIRECTORY  "${CMAKE_CURRENT_SOURCE_DIR}/" DESTINATION "${INSTALL_INCLUDE_DIR}/TdLibrary"
+install(DIRECTORY  "${CMAKE_CURRENT_SOURCE_DIR}/" DESTINATION "${INSTALL_INCLUDE_DIR}/td_lib"
         FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
         )
 set(CMAKE_SOURCE_DIR  "${CMAKE_SOURCE_DIR_BACKUP}")

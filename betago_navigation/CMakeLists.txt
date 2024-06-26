@@ -10,7 +10,7 @@ add_compile_options(-std=c++11)
 find_package(catkin REQUIRED COMPONENTS
   td_ros
   roscpp rospy std_msgs tf
-  TdLib
+  td_lib
 )
 set(OpenCV_DIR "/usr/local/share/OpenCV")
 # OpenCV
@@ -25,9 +25,9 @@ endif()
 # add Eigen header files
 include_directories( "/usr/local/include/eigen3" )
 
-#TdLib
-# set(TdLib_DIR "/home/td/slam/install/TdLib/lib/CMake/TdLib/")
-# find_package(TdLib REQUIRED)
+#td_lib
+# set(TdLib_DIR "/home/td/slam/install/td_lib/lib/CMake/td_lib/")
+# find_package(td_lib REQUIRED)
 # include_directories(${TdLib_INCLUDE_DIRS})
 # MESSAGE(STATUS "TdLib_INCLUDE_DIRS = " ${TdLib_INCLUDE_DIRS})
 
@@ -126,7 +126,7 @@ include_directories(/home/td/slam/install/sophus/include)
 catkin_package(
   # INCLUDE_DIRS include
   # LIBRARIES betago_navigation
-   CATKIN_DEPENDS roscpp rospy std_msgs tf  TdLib
+   CATKIN_DEPENDS roscpp rospy std_msgs tf  td_lib
 #  DEPENDS system_lib
 )
 
@@ -156,7 +156,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(odometry_output_node src/odometry_output_node.cpp)
 target_link_libraries(odometry_output_node
-        TdLib
+        td_lib
         ${catkin_LIBRARIES}
         ${OpenCV_LIBRARIES}
         )

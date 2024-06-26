@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <omp.h>// OpenMP编程需要包含的头文件
-#include "TdLibrary/tool/tic_toc.h"
+#include "td_lib/tool/tic_toc.h"
 #include <Eigen/Core>
 #include <sys/time.h>
 #include <complex>

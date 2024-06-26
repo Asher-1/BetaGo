@@ -13,11 +13,11 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   gazebo_ros
   td_ros
-  TdLib
+  td_lib
 )
-#TdLib
-# set(TdLib_DIR "/home/td/slam/install/TdLib/lib/CMake/TdLib/")
-# find_package(TdLib REQUIRED)
+#td_lib
+# set(TdLib_DIR "/home/td/slam/install/td_lib/lib/CMake/td_lib/")
+# find_package(td_lib REQUIRED)
 # include_directories(${TdLib_INCLUDE_DIRS})
 # MESSAGE(STATUS "TdLib_INCLUDE_DIRS = " ${TdLib_INCLUDE_DIRS})
 
@@ -113,7 +113,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #   INCLUDE_DIRS include
   LIBRARIES betago_gazebo
-  CATKIN_DEPENDS roscpp rospy std_msgs gazebo_ros td_ros TdLib
+  CATKIN_DEPENDS roscpp rospy std_msgs gazebo_ros td_ros td_lib
 #  DEPENDS system_lib
 )
 
@@ -147,7 +147,7 @@ add_executable(set_betago_pose src/set_betago_pose.cpp)
 target_link_libraries(set_betago_pose
         ${catkin_LIBRARIES}
         ${GAZEBO_LIBRARIES}
-        TdLib
+        td_lib
         )
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

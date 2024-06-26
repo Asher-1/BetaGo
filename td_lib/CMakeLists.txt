@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(TdLib)
+project(td_lib)
 add_compile_options(-std=c++11)
 set(CMAKE_BUILD_TYPE "Release")
 set(${PROJECT_NAME}_MAJOR_VERSION 0)
@@ -46,7 +46,7 @@ message(STATUS "PROJECT_BINARY_DIR :=" ${PROJECT_BINARY_DIR})
 include(GNUInstallDirs)
 add_subdirectory(src)
 # Add all targets to the build-tree export set
-export(TARGETS TdLib
+export(TARGETS td_lib
         FILE "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake")
 
 # Export the package for use from the build-tree
@@ -64,7 +64,7 @@ export(PACKAGE ${PROJECT_NAME})
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
         INCLUDE_DIRS src
-        LIBRARIES TdLib
+        LIBRARIES td_lib
         CATKIN_DEPENDS roscpp rospy std_msgs tf
 )
 

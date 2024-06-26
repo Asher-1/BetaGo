@@ -64,9 +64,14 @@ This repository is about the BetaGo robot maintained by South China University o
 ```
 
 ## Dependencies
+- qt related
+    ```
+     sudo apt-get install libqt4-dev
+    ```
+
 - ros related
     ```
-     sudo apt-get install ros-kinetic-joint-state-publisher-gui
+     sudo apt-get install ros-melodic-joint-state-publisher-gui
     ```
 - gazebo7 >= 7.4.0
 
@@ -82,25 +87,30 @@ This repository is about the BetaGo robot maintained by South China University o
     
 - moveit-ros packages:
     ```
-    sudo apt-get install ros-kinetic-moveit-ros-*
-    sudo apt-get install ros-kinetic-moveit
+    sudo apt-get install ros-melodic-moveit
+    sudo apt-get install ros-melodic-moveit-ros-*
+    sudo apt-get install ros-melodic-moveit-visual-tools
     ```
 - ridgeback packages:
     ```
-    sudo apt-get install ros-kinetic-ridgeback*
+    sudo apt-get install ros-melodic-ridgeback*
     ```
 - UR5 packages:
     ```
-    sudo apt-get install ros-kinetic-ur-*
-    sudo apt-get install ros-kinetic-ur5*
+    sudo apt-get install ros-melodic-ur-*
+    sudo apt-get install ros-melodic-ur5*
+    ```
+- tools packages:
+    ```
+    sudo apt-get install ros-melodic-teleop-twist-keyboard
     ```
 
 - [td_ros](https://github.com/TouchDeeper/td_ros):
 
     we add the td_ros directly.
 
-- [TdLib](https://github.com/TouchDeeper/TdLib):
-    we add the TdLib directly.
+- [td_lib](https://github.com/TouchDeeper/td_lib):
+    we add the td_lib and rename it with td_lib directly.
 
 ## Usage
 create the workspace
@@ -124,17 +134,17 @@ Possible problem:
     - solution: `sudo ln -s  /usr/lib/x86_64-linux-gnu/libproj.so.9 /usr/lib/x86_64-linux-gnu/libproj.so`
 ### Simulation
 - ur5 and allegro_hand are imported by environment variable RIDGEBACK_URDF_EXTRAS. RIDGEBACK_URDF_EXTRAS = your workspace path/src/betago_description/urdf/betago/ridgeback_urdf_extras.xacro
-     - method1: set temporary environment variable:`export RIDGEBACK_URDF_EXTRAS=~/BetaGo_ws/src/betago_description/urdf/betago/ridgeback_urdf_extras.xacro`
+     - method1: set temporary environment variable:`export RIDGEBACK_URDF_EXTRAS=~/BetaGo_ws/src/BetaGo/betago_description/urdf/betago/ridgeback_urdf_extras.xacro`
     - method2: set permanent environment variable:
         1. terminal:`sudo gedit ~/.bashrc`
-        2. add `export RIDGEBACK_URDF_EXTRAS=~/BetaGo_ws/src/betago_description/urdf/betago/ridgeback_urdf_extras.xacro` in the end.
+        2. add `export RIDGEBACK_URDF_EXTRAS=~/BetaGo_ws/src/BetaGo/betago_description/urdf/betago/ridgeback_urdf_extras.xacro` in the end.
         3. terminal:`source ~/.bashrc`
         
 - Check if the model has been downloaded in `~/.Gazebo/`, if not, you need to download the model first and put it in `~/.Gazebo/`. [Download link](https://bitbucket.org/osrf/gazebo_models/downloads/).
 For Chinese, download from [rosclub.cn](http://www.rosclub.cn/post-37.html) : link: http://pan.baidu.com/s/1pKaeg0F, password:cmxc
     - set GAZEBO_MODEL_PATH:
         1. terminal:`sudo gedit ~/.bashrc`
-        2. add `export GAZEBO_MODEL_PATH="/home/wang/.gazebo/models"` in the end.
+        2. add `export GAZEBO_MODEL_PATH="/home/$USER/.gazebo/models"` in the end.
         3. terminal:`source ~/.bashrc`
 ### Real robot
 #### Step to connect to the ridgeback by wired connection

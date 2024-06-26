@@ -100,7 +100,7 @@ void GazeboRosRealsense::OnNewFrame(const rendering::CameraPtr cam,
 }
 
 // Referenced from gazebo_plugins
-// https://github.com/ros-simulation/gazebo_ros_pkgs/blob/kinetic-devel/gazebo_plugins/src/gazebo_ros_openni_kinect.cpp#L302
+// https://github.com/ros-simulation/gazebo_ros_pkgs/blob/melodic-devel/gazebo_plugins/src/gazebo_ros_openni_kinect.cpp#L302
 // Fill depth information
 bool GazeboRosRealsense::FillPointCloudHelper(sensor_msgs::PointCloud2 &point_cloud_msg,
                                               uint32_t rows_arg, uint32_t cols_arg,

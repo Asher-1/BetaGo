@@ -1,11 +1,11 @@
 
-//#include "TdLibrary/realsense.h"
-//#include "TdLibrary/threadSafeStructure.h"
-//#include "TdLibrary/random_tool.hpp"
-#include "TdLibrary/td_eigen/eigen_tools.h"
-#include "TdLibrary/tool/tic_toc.h"
-#include "TdLibrary/td_eigen/eigen_common_typedef.h"
-#include <TdLibrary/slam_tool/motion_transformation.h>
+//#include "td_lib/realsense.h"
+//#include "td_lib/threadSafeStructure.h"
+//#include "td_lib/random_tool.hpp"
+#include "td_lib/td_eigen/eigen_tools.h"
+#include "td_lib/tool/tic_toc.h"
+#include "td_lib/td_eigen/eigen_common_typedef.h"
+#include <td_lib/slam_tool/motion_transformation.h>
 //#include <thread>
 //#include <atomic>
 //#include "opencv2/core.hpp"
@@ -16,8 +16,8 @@
 #include <eigen3/Eigen/Dense>
 #include <sophus/se3.hpp>
 #include <sophus/so3.hpp>
-#include <TdLibrary/FileOperation/file_manager.hpp>
-#include <TdLibrary/slam_tool/motion_transformation.hpp>
+#include <td_lib/FileOperation/file_manager.hpp>
+#include <td_lib/slam_tool/motion_transformation.hpp>
 using namespace std;
 int main() {
 

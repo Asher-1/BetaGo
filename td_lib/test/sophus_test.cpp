@@ -5,7 +5,7 @@
 #include <Eigen/Geometry>
 #include <sophus/se3.hpp>
 #include <iostream>
-#include <TdLibrary/slam_tool/motion_transformation.h>
+#include <td_lib/slam_tool/motion_transformation.h>
 class CandidateFromTraining {
 
 public:

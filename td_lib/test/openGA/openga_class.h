@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <string>
-#include "TdLibrary/openga.hpp"
+#include "td_lib/openga.hpp"
 #include <fstream>
 class openga_class {
 

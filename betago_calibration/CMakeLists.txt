@@ -28,7 +28,7 @@ find_package(catkin REQUIRED COMPONENTS
     tf2_geometry_msgs
     td_ros
     cv_bridge
-    TdLib
+    td_lib
 )
 
 ## System dependencies are found with CMake's conventions
@@ -37,9 +37,9 @@ find_package(Boost REQUIRED system filesystem date_time thread)
 include_directories( "/usr/local/include/eigen3" )
 #template sophus
 include_directories("/home/td/slam/install/sophus/include")
-#TdLib
-# set(TdLib_DIR "/home/td/slam/install/TdLib/lib/CMake/TdLib/")
-# find_package(TdLib REQUIRED)
+#td_lib
+# set(TdLib_DIR "/home/td/slam/install/td_lib/lib/CMake/td_lib/")
+# find_package(td_lib REQUIRED)
 # include_directories(${TdLib_INCLUDE_DIRS})
 # MESSAGE(STATUS "TdLib_INCLUDE_DIRS = " ${TdLib_INCLUDE_DIRS})
 
@@ -152,7 +152,7 @@ catkin_package(
         interactive_markers
         gazebo_ros
         td_ros
-        TdLib
+        td_lib
         #  DEPENDS EIGEN3
 )
 
@@ -199,15 +199,15 @@ include_directories(
 #   ${catkin_LIBRARIES}
 # )
 add_library(calibration src/Calibration.cpp src/utilities.cpp)
-target_link_libraries(calibration ${catkin_LIBRARIES} TdLib ${OpenCV_LIBS})
+target_link_libraries(calibration ${catkin_LIBRARIES} td_lib ${OpenCV_LIBS})
 add_executable(cam_laser_calibration_node src/run_cam_laser_calibration.cpp)
 target_link_libraries(cam_laser_calibration_node ${catkin_LIBRARIES} calibration  ${GAZEBO_LIBRARIES})
 
 add_executable(hand_eye_move src/hand_eye_move.cpp)
-target_link_libraries(hand_eye_move ${catkin_LIBRARIES} ${Boost_LIBRARIES} TdLib)
+target_link_libraries(hand_eye_move ${catkin_LIBRARIES} ${Boost_LIBRARIES} td_lib)
 
 add_executable(output_timestamp src/output_timestamp.cpp)
-target_link_libraries(output_timestamp ${catkin_LIBRARIES} TdLib)
+target_link_libraries(output_timestamp ${catkin_LIBRARIES} td_lib)
 
 add_executable(inverse src/inverese.cpp)
 #add_executable(tf_listener_test src/listener_test.cpp)

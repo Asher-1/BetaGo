@@ -27,10 +27,10 @@ make install
 ```
 an example:
 ```asm
-cmake .. -DCMAKE_INSTALL_PREFIX:=/home/wang/CLionProjects/TdLibrary/install
+cmake .. -DCMAKE_INSTALL_PREFIX:=/home/wang/CLionProjects/td_lib/install
 ```
 
 ## Usage
-- test is used to test the TdLib.
+- test is used to test the td_lib.
 
 

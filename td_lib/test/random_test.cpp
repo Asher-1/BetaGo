@@ -1,8 +1,8 @@
 //
 // Created by wang on 19-6-5.
 //
-#include "TdLibrary/random_tool.h"
-#include "TdLibrary/random_tool.hpp"
+#include "td_lib/random_tool.h"
+#include "td_lib/random_tool.hpp"
 #include <stdlib.h>
 int main(){
     for (int i = 0; i < 10; ++i) {

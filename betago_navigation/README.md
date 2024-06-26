@@ -2,11 +2,11 @@
 This is navigation package for BetaGo.
 ## Dependencies
 - Gmapping: 
-    - `sudo apt-get install ros-kinetic-gmapping*`
+    - `sudo apt-get install ros-melodic-gmapping*`
 - Cartographer: 
-    - `sudo apt-get install ros-kinetic-cartographer*`
+    - `sudo apt-get install ros-melodic-cartographer*`
 - Rtabmap: 
-    - `sudo apt-get install ros-kinetic-octomap*`
+    - `sudo apt-get install ros-melodic-octomap*`
 ## Simulation
 ### Gmapping
 - read the navigation [tutorial](http://www.clearpathrobotics.com/assets/guides/ridgeback/navigation.html) of the ridgeback
@@ -20,7 +20,7 @@ This is navigation package for BetaGo.
 ```
 ### Cartographer
 #### Build.
-- kinetic
+- melodic
     1. refer to [here](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html#building-installation) until `# Only on Ubuntu 16 / ROS Kinetic: src/cartographer/scripts/install_proto3.sh`.
     2. install protoc3 in system default path will conflict with the protoc2.6.1 needed by ros, so we need to install protoc3 in custom local path. add `-DCMAKE_INSTALL_PREFIX=../install \` to `src/cartographer/scripts/install_proto3.sh`
         ```
@@ -39,9 +39,9 @@ This is navigation package for BetaGo.
         1. `cd [protobuf3_dir]/build`
         2. remove the protobuf3, `cat install_manifest.txt | sudo xargs rm`
         3. reinstall protobuf2.6.1. refer to [here](https://blog.csdn.net/lwplwf/article/details/76532804).
-- ros version after kinetic just refer to [here](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html#building-installation).
+- ros version after melodic just refer to [here](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html#building-installation).
 ### rtabmap
-note: this is only test in `ros-kinetic-rtabmap-ros`
+note: this is only test in `ros-melodic-rtabmap-ros`
 - only kinect
 ```asm
  roslaunch betago_navigation navigation_world.launch
