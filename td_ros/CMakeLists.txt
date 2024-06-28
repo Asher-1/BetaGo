@@ -6,7 +6,6 @@ add_compile_options(-std=c++11)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-#        object_msgs
         roscpp
         rospy
         std_msgs
@@ -17,17 +16,11 @@ find_package(catkin REQUIRED COMPONENTS
         tf
         gazebo_ros
         rosbag
-#        eigen_conversions
-#        tf
         )
 
 set(GeoGraphic_LIBRARIES "")
-#set(Glog_LIBRARIES "")
 
-#include(cmake/YAML.cmake)
 include(cmake/geographic.cmake)
-#include(cmake/eigen.cmake)
-#include(cmake/glog.cmake)
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
 ################################################
@@ -59,7 +52,7 @@ include(cmake/geographic.cmake)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
         INCLUDE_DIRS include
-        LIBRARIES {PROJECT_NAME}
+        LIBRARIES td_ros
         CATKIN_DEPENDS roscpp rospy std_msgs tf
         moveit_core
         moveit_visual_tools
@@ -94,7 +87,7 @@ file(GLOB Subscriber src/subscriber/*.cpp)
 file(GLOB SensorData src/sensor_data/*.cpp)
 file(GLOB BagLib src/bag/*.cpp)
 
-add_library({PROJECT_NAME}
+add_library(td_ros
         src/tool.cpp
         src/arm_moveit.cpp
         ${TFListener}
@@ -106,7 +99,7 @@ add_library({PROJECT_NAME}
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
-add_dependencies({PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(td_ros ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
 #add_executable(object_tf_broadcaster_node src/object_tf_broadcaster_node.cpp)
@@ -118,14 +111,14 @@ add_dependencies({PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXP
 #add_dependencies(register_object_client ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries({PROJECT_NAME} PRIVATE
+target_link_libraries(td_ros PRIVATE
         ${catkin_LIBRARIES}
         ${GAZEBO_LIBRARIES}
         ${GeoGraphic_LIBRARIES}
 #        ${Glog_LIBRARIES}
         )
 #target_link_libraries(object_tf_broadcaster_node
-#        {PROJECT_NAME}
+#        td_ros
 #        ${catkin_LIBRARIES}
 #        )
 #target_link_libraries(register_object_client
@@ -140,7 +133,7 @@ target_link_libraries({PROJECT_NAME} PRIVATE
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html
 
 ## Mark executables and/or libraries for installation
-#install(TARGETS {PROJECT_NAME}
+#install(TARGETS td_ros
 #        ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #        LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
